@@ -55,23 +55,21 @@ namespace MovieList_Lab_10
                 
                 Genre[] acceptedGenres = (Genre[])Enum.GetValues(typeof(Genre));
 
-                foreach (Genre g in acceptedGenres)
+                for (var i = 0; i < acceptedGenres.Length; i++)
                 {
-                    Console.WriteLine(g);
+                    Console.WriteLine($"{i+1}. {acceptedGenres[i]}");
                 }
 
-                Console.WriteLine("What category are you interested in? Typer a genre or enter the number beside a genre.");
+                Console.WriteLine("What genre are you interested in? Type a genre or enter the number of the corresponding genre you are interesting in.");
                 string input = Console.ReadLine();
 
                 Genre inputGenre = (Genre)Enum.Parse(typeof(Genre), input);
 
-                foreach (Movie m in movies)
+                foreach (String m in movies.Where(x => x.genre == inputGenre).Select(g => g.Title).ToList())
                 {
-                    if (m.genre == inputGenre)
-                    {
-                        Console.WriteLine(m.Title);
-                    }
+                    Console.WriteLine(m);
                 }
+                
                 Console.WriteLine("Continue (y/n)");
                 userAnswer = Console.ReadLine();
             }

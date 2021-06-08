@@ -9,7 +9,6 @@ namespace MovieList_Lab_10
 
     public enum Genre
     {
-        [Description("1 - Horror")]
         Horror = 1,
         Comedy,
         Romance,
@@ -20,8 +19,6 @@ namespace MovieList_Lab_10
         Thriller
 
     }
-
-
     class Movie
     {
         public string Title { get; set; }
@@ -34,11 +31,6 @@ namespace MovieList_Lab_10
             Title = title;
             Runtime = runtime;
             this.genre = genre;
-        }
-
-        internal bool OrderBy(Func<object, object> p)
-        {
-            throw new NotImplementedException();
         }
     }
 }
